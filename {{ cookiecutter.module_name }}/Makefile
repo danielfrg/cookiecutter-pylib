@@ -27,6 +27,10 @@ help:  ## Show this help menu
 # ------------------------------------------------------------------------------
 # Package build, test and docs
 
+.PHONY: build
+build: package  ## Build Python package
+
+
 .PHONY: package
 package:  ## Build Python package
 	python setup.py sdist

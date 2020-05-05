@@ -1,6 +1,10 @@
 name: Python package
 
-on: [push]
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
 
 jobs:
   build:
@@ -23,10 +27,17 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
+    - name: Install package
+      run: |
+        make build
+        pip install dist/*.tar.gz
+        pip freeze
+
     - name: Lint
       run: |
         make check
 
     - name: Test with pytest
+      if: always()
       run: |
         make test
