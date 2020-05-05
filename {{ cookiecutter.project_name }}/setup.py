@@ -26,7 +26,6 @@ setup(
     keywords=["jupyter", "ipython", "widgets", "voila", "nbconvert", "dashboards"],
     packages=find_packages(),
     include_package_data=True,
-    data_files=data_files,
     zip_safe=False,
     cmdclass=versioneer.get_cmdclass(),
     entry_points = {},
