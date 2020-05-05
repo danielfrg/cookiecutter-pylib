@@ -4,17 +4,20 @@ My [Cookiecutter](https://github.com/audreyr/cookiecutter) template for pure Pyt
 
 ## Features
 
-- versioneer
-- conda for dev envrionment
-- pytest for tests
-- Make for operations
-- mkdocs for mkdocs
-- netlify structure for publishing the docs
-- black, flake8 and isort for style checks
+- conda for dev environment
+- `versioneer` to manage versions
+- `make` for operations
+- `pytest` for tests
+- `black`, `flake8` and `isort` for style checks
 
 Defaults:
 
 - Apache License 2.0
+
+# TODO:
+
+- mkdocs for docs
+- test netlify structure for publishing the docs
 
 ## Usage
 
