@@ -14,7 +14,7 @@ Defaults:
 
 - Apache License 2.0
 
-# TODO:
+# TODO
 
 - mkdocs for docs
 - test netlify structure for publishing the docs
