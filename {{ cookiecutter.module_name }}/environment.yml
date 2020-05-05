@@ -11,6 +11,7 @@ dependencies:
   - isort
   - twine
   - pytest
+  - pytest-cov
   # This project conda deps
   - pip:
     # Base pip deps

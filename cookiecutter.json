@@ -4,5 +4,8 @@
     "author": "First Name Last Name",
     "author_email": "user@mail.com",
     "home_page": "https://github.com/username/{{ cookiecutter.project_name }}",
-    "requires_python": "3.7"
+    "requires_python": "3.7",
+    "_copy_without_render": [
+      ".github"
+    ]
 }

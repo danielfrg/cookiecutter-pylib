@@ -22,5 +22,6 @@ exclude = '''
   | build
   | dist
   | setup.py
+  | version.py
 )
 '''

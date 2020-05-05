@@ -1,8 +1,8 @@
 import os
 import sys
-from setuptools import setup
-from setuptools import find_packages
+
 import versioneer
+from setuptools import find_packages, setup
 
 
 def read_file(filename):
@@ -18,8 +18,8 @@ setup(
     long_description=read_file("README.md"),
     long_description_content_type="text/markdown",
     author="{{ cookiecutter.author }}",
-    author_email="{{ cookiecutter.email }}",
-    url="{{ cookiecutter.homepage }}",
+    author_email="{{ cookiecutter.author_email }}",
+    url="{{ cookiecutter.home_page }}",
     license="Apache 2.0",
     python_requires=">=3.0,!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*",
     install_requires=read_file("requirements.package.txt").splitlines(),

@@ -11,8 +11,8 @@ all: help
 
 .PHONY: clean
 clean:  ## Clean build files
-	@rm -rf dist
-	@rm -rf site
+	@rm -rf build dist site htmlcov
+	@rm .coverage .pytest_cache
 
 
 .PHONY: env
@@ -22,6 +22,7 @@ env:  ## Create dev environment
 .PHONY: help
 help:  ## Show this help menu
 	@grep -E '^[0-9a-zA-Z_-]+:.*?##.*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?##"; OFS="\t\t"}; {printf "\033[36m%-30s\033[0m %s\n", $$1, ($$2==""?"":$$2)}'
+
 
 # ------------------------------------------------------------------------------
 # Package build, test and docs
@@ -33,15 +34,15 @@ package:  ## Build Python package
 
 .PHONY: check
 check:  ## Check linting
-	flake8 {{ cookiecutter.module_name }}
-  isort --check-only --diff --recursive --project {{ cookiecutter.module_name }} --section-default THIRDPARTY
-  black --check {{ cookiecutter.module_name }}
+	@flake8 {{ cookiecutter.module_name }}
+	@isort --check-only --diff --recursive --project {{ cookiecutter.module_name }} --section-default THIRDPARTY
+	@black --check {{ cookiecutter.module_name }}
 
 
 .PHONY: fmt
 fmt:  ## Format source
-	isort --recursive --project poliastro --section-default THIRDPARTY {{ cookiecutter.module_name }}
-	black {{ cookiecutter.module_name }}
+	@isort --recursive --project {{ cookiecutter.project_name }} --section-default THIRDPARTY {{ cookiecutter.module_name }}
+	@black {{ cookiecutter.module_name }}
 
 
 .PHONY: upload-pypi
@@ -57,7 +58,7 @@ upload-test:  ## Upload package to PyPI test repository
 .PHONY: test tests
 test: tests
 tests:  ## Run tests
-	pytest -vvv {{ cookiecutter.module_name }}/tests -k $(TEST_FILTER) --html=test-results/report.html --self-contained-html
+	pytest -vvv {{ cookiecutter.module_name }}/tests -k $(TEST_FILTER)
 
 
 .PHONY: serve-docs
