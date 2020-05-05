@@ -1,0 +1,22 @@
+name: {{ cookiecutter.project_name }}
+channels:
+  - conda-forge
+dependencies:
+  # Base conda deps
+  - python={{ cookiecutter.requires_python }}
+  - pip
+  - pylint
+  - black
+  - flake8
+  - isort
+  - twine
+  - pytest
+  # This project conda deps
+  - pip:
+    # Base pip deps
+    - mkdocs
+    - mkdocs-material
+    - mkdocs-minify-plugin
+    - pygments
+    - pymdown-extensions
+    # This project pip deps

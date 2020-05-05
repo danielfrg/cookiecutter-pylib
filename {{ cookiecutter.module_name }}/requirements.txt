@@ -1,0 +1,16 @@
+# This is used by Netlify and CI - It should match environment.yml
+# Base conda deps
+pylint
+black
+flake8
+isort
+twine
+pytest
+# This project conda deps
+# Base pip deps
+mkdocs
+mkdocs-material
+mkdocs-minify-plugin
+pygments
+pymdown-extensions
+# This project pip deps
