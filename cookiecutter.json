@@ -1,9 +1,10 @@
 {
     "project_name": "project-name",
     "module_name": "{{ cookiecutter.project_name.lower().replace('-', '_') }}",
-    "author": "First Name Last Name",
-    "author_email": "user@mail.com",
-    "home_page": "https://github.com/username/{{ cookiecutter.project_name }}",
+    "maintainer": "First Name Last Name",
+    "maintainer_email": "user@mail.com",
+    "github_username": "username",
+    "home_page": "https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_name }}",
     "requires_python": "3.7",
     "_copy_without_render": [
       ".github"

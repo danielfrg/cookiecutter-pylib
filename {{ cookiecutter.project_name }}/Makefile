@@ -37,6 +37,11 @@ env:
 	conda env create
 
 
+.PHONY: develop
+develop:  ## Install package for development
+	python -m pip install --no-build-isolation -e .
+
+
 .PHONY: build
 build: package  ## Build everything
 
@@ -55,7 +60,7 @@ check:  ## Check linting
 
 .PHONY: fmt
 fmt:  ## Format source
-	@isort --recursive --project {{ cookiecutter.project_name }} --section-default THIRDPARTY {{ cookiecutter.module_name }} .
+	@isort --recursive --project {{ cookiecutter.module_name }} --section-default THIRDPARTY {{ cookiecutter.module_name }} .
 	@black {{ cookiecutter.module_name }} .
 
 
