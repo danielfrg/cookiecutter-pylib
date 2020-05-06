@@ -20,7 +20,7 @@ clean:  ## Clean build files
 
 
 .PHONY: cleanall
-cleanall:  ## Clean everything
+cleanall: clean   ## Clean everything
 	@rm -rf *.egg-info
 
 
@@ -32,8 +32,8 @@ help:  ## Show this help menu
 # ------------------------------------------------------------------------------
 # Package build, test and docs
 
-.PHONY: env
-	env:  ## Create dev environment
+.PHONY: env  ## Create dev environment
+env:
 	conda env create
 
 
