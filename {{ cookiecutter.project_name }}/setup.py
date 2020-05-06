@@ -20,7 +20,7 @@ setup(
     author="{{ cookiecutter.author }}",
     author_email="{{ cookiecutter.author_email }}",
     url="{{ cookiecutter.home_page }}",
-    license="Apache 2.0",
+    license="Apache License Version 2.0",
     python_requires=">=3.0,!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*",
     install_requires=read_file("requirements.package.txt").splitlines(),
     keywords=[],

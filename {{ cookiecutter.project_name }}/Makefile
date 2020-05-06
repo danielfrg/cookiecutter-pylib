@@ -71,7 +71,7 @@ upload-test:  ## Upload package to test PyPI
 
 .PHONY: test
 test:  ## Run tests
-	pytest -vv {{ cookiecutter.module_name }}/tests -k $(TEST_FILTER)
+	pytest -s -vv {{ cookiecutter.module_name }}/tests -k $(TEST_FILTER)
 
 
 .PHONY: docs
