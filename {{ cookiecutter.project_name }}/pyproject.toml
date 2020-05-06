@@ -7,7 +7,7 @@ requires = [
 ]
 
 [tool.setuptools_scm]
-write_to = " {{ cookiecutter.module_name }}/_generated_version.py"
+write_to = "{{ cookiecutter.module_name }}/_generated_version.py"
 
 [tool.black]
 target-version = ["py36", "py37", "py38"]

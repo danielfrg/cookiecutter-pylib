@@ -13,6 +13,7 @@ dependencies:
   - black
   - isort
   - twine
+  - wheel
   - pytest
   - pytest-cov
 
@@ -27,4 +28,3 @@ dependencies:
     - pymdown-extensions
 
     # This project pip deps
-    - python-coveralls

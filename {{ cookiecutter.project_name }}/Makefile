@@ -5,6 +5,7 @@ SHELL := bash
 MAKEFLAGS += --warn-undefined-variables
 MAKEFLAGS += --no-builtin-rules
 
+PWD := $(shell pwd)
 TEST_FILTER ?= ""
 
 
@@ -12,8 +13,8 @@ first: help
 
 .PHONY: clean
 clean:  ## Clean build files
-	@rm -rf build dist site htmlcov .pytest_cache
-	@rm -f .coverage coverage.xml
+	@rm -rf build dist site htmlcov .pytest_cache .eggs
+	@rm -f .coverage coverage.xml {{ cookiecutter.module_name }}/_generated_version.py
 	@find . -type f -name '*.py[co]' -delete
 	@find . -type d -name __pycache__ -exec rm -rf {} +
 	@find . -type d -name .ipynb_checkpoints -exec rm -rf {} +
