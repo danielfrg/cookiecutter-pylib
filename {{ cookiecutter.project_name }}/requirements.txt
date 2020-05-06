@@ -11,7 +11,7 @@ pytest-cov
 
 # This project conda deps
 
-# Base pip deps
+# Base pip deps: Docs
 mkdocs
 mkdocs-material
 mkdocs-minify-plugin

@@ -7,17 +7,22 @@ MAKEFLAGS += --no-builtin-rules
 
 TEST_FILTER ?= ""
 
-all: help
+
+first: help
 
 .PHONY: clean
 clean:  ## Clean build files
-	@rm -rf build dist site htmlcov
-	@rm .coverage .pytest_cache
+	@rm -rf build dist site htmlcov .pytest_cache
+	@rm -f .coverage
+	@find . -type f -name '*.py[co]' -delete
+	@find . -type d -name __pycache__ -exec rm -rf {} +
+	@find . -type d -name .ipynb_checkpoints -exec rm -rf {} +
 
 
-.PHONY: env
-env:  ## Create dev environment
-	conda env create
+.PHONY: cleanall
+cleanall:  ## Clean everything
+	@rm -rf *.egg-info
+
 
 .PHONY: help
 help:  ## Show this help menu
@@ -27,26 +32,31 @@ help:  ## Show this help menu
 # ------------------------------------------------------------------------------
 # Package build, test and docs
 
+.PHONY: env
+	env:  ## Create dev environment
+	conda env create
+
+
 .PHONY: build
-build: package  ## Build Python package
+build: package  ## Build everything
 
 
 .PHONY: package
-package:  ## Build Python package
+package:  ## Build Python package (sdist)
 	python setup.py sdist
 
 
 .PHONY: check
 check:  ## Check linting
 	@flake8 {{ cookiecutter.module_name }}
-	@isort --check-only --diff --recursive --project {{ cookiecutter.module_name }} --section-default THIRDPARTY
-	@black --check {{ cookiecutter.module_name }}
+	@isort --check-only --diff --recursive --project {{ cookiecutter.module_name }} --section-default THIRDPARTY {{ cookiecutter.module_name }} .
+	@black --check {{ cookiecutter.module_name }} .
 
 
 .PHONY: fmt
 fmt:  ## Format source
-	@isort --recursive --project {{ cookiecutter.project_name }} --section-default THIRDPARTY {{ cookiecutter.module_name }}
-	@black {{ cookiecutter.module_name }}
+	@isort --recursive --project {{ cookiecutter.project_name }} --section-default THIRDPARTY {{ cookiecutter.module_name }} .
+	@black {{ cookiecutter.module_name }} .
 
 
 .PHONY: upload-pypi
@@ -55,14 +65,18 @@ upload-pypi:  ## Upload package to PyPI
 
 
 .PHONY: upload-test
-upload-test:  ## Upload package to PyPI test repository
+upload-test:  ## Upload package to test PyPI
 	twine upload --repository testpypi dist/*.tar.gz
 
 
-.PHONY: test tests
-test: tests
+.PHONY: tests
 tests:  ## Run tests
-	pytest -vvv {{ cookiecutter.module_name }}/tests -k $(TEST_FILTER)
+	pytest -vv {{ cookiecutter.module_name }}/tests -k $(TEST_FILTER)
+
+
+.PHONY: docs
+docs:  ## Build mkdocs
+	mkdocs build --config-file $(CURDIR)/mkdocs.yml
 
 
 .PHONY: serve-docs

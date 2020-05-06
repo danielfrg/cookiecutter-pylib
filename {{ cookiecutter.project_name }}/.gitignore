@@ -103,7 +103,7 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-# mkdocs
-site
+# Jupyter Notebook
+.ipynb_checkpoints
 
 ### Project specific ###

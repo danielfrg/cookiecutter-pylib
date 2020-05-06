@@ -21,7 +21,7 @@ exclude = '''
   | buck-out
   | build
   | dist
-  | setup.py
-  | version.py
+  | versioneer.py
+  | _version.py
 )
 '''

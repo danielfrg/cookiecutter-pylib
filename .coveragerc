@@ -1,4 +1,0 @@
-[run]
-omit =
-  project_name/version.py
-  project_name/tests/*

@@ -1,0 +1,6 @@
+[run]
+omit =
+    {{ cookiecutter.module_name }}/_version.py
+    {{ cookiecutter.module_name }}/tests/*
+source =
+    {{ cookiecutter.module_name }}

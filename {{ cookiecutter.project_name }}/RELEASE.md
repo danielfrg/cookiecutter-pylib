@@ -16,6 +16,6 @@ make clean
 make build
 make upload-pypi
 
-# Or to upload to test-pypi first
+# Upload to test PyPI
 make upload-test
 ```
