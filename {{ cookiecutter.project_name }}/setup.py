@@ -23,7 +23,6 @@ def parse_git(root, **kwargs):
     return parse(root, **kwargs)
 
 
-
 setup(
     name="{{ cookiecutter.module_name }}",
     packages=find_packages() + ["{{ cookiecutter.module_name }}.tests"],
@@ -48,7 +47,7 @@ setup(
     long_description_content_type="text/markdown",
     license="Apache License, Version 2.0",
     maintainer="{{ cookiecutter.maintainer }}",
-    maintainer_email="{{ cookiecutter.author_email }}",
+    maintainer_email="{{ cookiecutter.maintainer_email }}",
     url="{{ cookiecutter.home_page }}",
     classifiers=[
         "License :: OSI Approved :: Apache Software License",

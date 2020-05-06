@@ -11,6 +11,7 @@ except ImportError:
             Parse function for setuptools_scm
             """
             from setuptools_scm.git import parse
+
             kwargs["describe_command"] = "git describe --dirty --tags --long"
             return parse(root, **kwargs)
 
