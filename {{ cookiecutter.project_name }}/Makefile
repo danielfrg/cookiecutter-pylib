@@ -54,7 +54,7 @@ package:  ## Build Python package (sdist)
 
 .PHONY: check
 check:  ## Check linting
-	@flake8 {{ cookiecutter.module_name }}
+	@flake8 {{ cookiecutter.module_name }} .
 	@isort --check-only --diff --recursive --project {{ cookiecutter.module_name }} --section-default THIRDPARTY {{ cookiecutter.module_name }} .
 	@black --check {{ cookiecutter.module_name }} .
 
