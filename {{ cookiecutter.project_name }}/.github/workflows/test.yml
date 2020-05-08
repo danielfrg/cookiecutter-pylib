@@ -38,6 +38,7 @@ jobs:
     - name: Check linting
       run: |
         make check
+        make report
 
     - name: Run tests
       if: always()

@@ -1,5 +1,0 @@
-[run]
-omit =
-    {{ cookiecutter.module_name }}/tests/*
-source =
-    {{ cookiecutter.module_name }}

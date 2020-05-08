@@ -43,7 +43,7 @@ develop:  ## Install package for development
 	python -m pip install --no-build-isolation -e .
 
 
-.PHONY: build
+.PHONY: cleanall build
 build: package  ## Build everything
 
 
@@ -55,14 +55,14 @@ package:  ## Build Python package (sdist)
 .PHONY: check
 check:  ## Check linting
 	@flake8
-	@isort --check-only --diff --recursive --project {{ cookiecutter.module_name }} --section-default THIRDPARTY {{ cookiecutter.module_name }} .
-	@black --check {{ cookiecutter.module_name }} .
+	@isort --check-only --diff --recursive --project {{ cookiecutter.module_name }} --section-default THIRDPARTY .
+	@black --check .
 
 
 .PHONY: fmt
 fmt:  ## Format source
-	@isort --recursive --project {{ cookiecutter.module_name }} --section-default THIRDPARTY {{ cookiecutter.module_name }} .
-	@black {{ cookiecutter.module_name }} .
+	@isort --recursive --project {{ cookiecutter.module_name }} --section-default THIRDPARTY .
+	@black .
 
 
 .PHONY: upload-pypi
@@ -72,12 +72,18 @@ upload-pypi:  ## Upload package to PyPI
 
 .PHONY: upload-test
 upload-test:  ## Upload package to test PyPI
-	twine upload --repository testpypi dist/*.tar.gz
+	twine upload --repository test dist/*.tar.gz
 
 
 .PHONY: test
 test:  ## Run tests
-	pytest -s -vv {{ cookiecutter.module_name }}/tests -k $(TEST_FILTER)
+	pytest -k $(TEST_FILTER)
+
+
+.PHONY: report
+report:  ## Generate coverage reports
+	@coverage xml
+	@coverage html
 
 
 .PHONY: docs
