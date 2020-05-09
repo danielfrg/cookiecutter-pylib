@@ -30,10 +30,6 @@ exclude = '''
 )
 '''
 
-[tool.coverage.run]
-parallel = true
-branch = true
-
 [tool.isort]
 # https://black.readthedocs.io/en/stable/the_black_code_style.html#how-black-wraps-lines
 multi_line_output=3
