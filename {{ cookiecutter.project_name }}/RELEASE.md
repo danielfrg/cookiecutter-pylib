@@ -14,8 +14,8 @@ make build
 make upload-test
 
 # Create venv and install rc version
-pip install --extra-index-url=https://test.pypi.org/simple 'word2vec[test]'==${VERSION}rc0
-pytest --pyargs word2vec -m "not data"
+pip install --extra-index-url=https://test.pypi.org/simple '{{ cookiecutter.module_name }}[test]'==${VERSION}rc0
+pytest --pyargs {{ cookiecutter.module_name }} -m "not data"
 
 # Delete rc tag
 git tag -d ${VERSION}.rc0
