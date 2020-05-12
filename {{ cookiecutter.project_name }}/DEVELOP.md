@@ -4,7 +4,7 @@ Create dev environment
 
 ```
 make env
-conda activate {{ coockiecutter.project_name }}
+conda activate {{ cookiecutter.project_name }}
 make develop
 ```
 
