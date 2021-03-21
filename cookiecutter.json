@@ -5,7 +5,7 @@
     "maintainer_email": "user@mail.com",
     "github_username": "username",
     "home_page": "https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_name }}",
-    "requires_python": "3.7",
+    "requires_python": "3.8",
     "_copy_without_render": [
       ".github"
     ]
