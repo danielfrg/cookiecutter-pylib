@@ -5,7 +5,7 @@ dependencies:
   - python={{ cookiecutter.requires_python }}
   - pip
 
-  # Development conda deps
+  # Dev tools
   - setuptools
   - setuptools_scm
   - pylint
@@ -14,15 +14,15 @@ dependencies:
   - isort
   - twine
   - wheel
+
+  # Package deps
+
+  # Testing
   - pytest
   - pytest-cov
 
-  # Other development deps
-
   - pip:
-    # This project pip deps
-
-    # Development docs deps
+    # Docs
     - mkdocs
     - mkdocs-material
     - mkdocs-minify-plugin
